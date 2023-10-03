@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Itim' rel='stylesheet'>
+    <link rel="stylesheet" href="index.css">
+    <title>Ensomhet</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <!-- Remove later -->
+    <script language="JavaScript">
+        function alertF() {
+            alert("Skjema sendt inn")
+        }
+    </script>
+</head>
+<body class="flex column">
+    <header class="flex">
+        <nav class="flex row">
+            <h1 id="nav-title">Ensomhet</h1>
+            <ul class="flex">
+                <li id="nav-menu-button">
+                    <i class="fa-solid fa-bars nav-menu-button"></i>
+                </li>
+                <li class="nav-list-item flex">
+                    <a href="/index.html" class="nav-button">Informasjon</a>
+                </li>
+                <li class="nav-list-item flex">
+                    <a href="./contact.html" class="nav-button current-page">kontakt Skjema</a>
+                </li>
+            </ul>
+         </nav>
+    </header>
+    <main class="flex">
+        <form action="" class="flex column">
+            <h1>Kontakt skjema</h1>
+            <div class="form-input-div">
+                <input type="text" class="form-input" placeholder="Navn">
+            </div>
+            <div class="form-input-div">
+                <input type="text" class="form-input" placeholder="Etternavn">
+            </div>
+            <div class="form-input-div">
+                <input type="text" class="form-input" placeholder="Email adresse">
+            </div>
+            <div class="form-input-div">
+                <textarea type="text" class="textarea-input form-input" placeholder="Hva handler det" rows="10"></textarea>
+            </div>
+            <input type="submit" class="submit-button" value="Send inn skjema" onclick="alertF()">
+        </form>
+    </main>
+    <footer class="flex column">
+        <h1>Ensomhet</h1>
+        <p>This website was made using HTML & CSS</p>
+        <i class="fa-solid fa-arrow-up arrow-up"></i>
+    </footer>
+</body>
+</html>
