@@ -27,8 +27,10 @@ html {
     --clr_background: #ffffff;
     --clr_primary:  #e8e8e8;
     --clr_secondary:  #bfbfbf;
-    --clr_accent: #9c2121;;
+    --clr_accent: #5c3082;
     --clr_light: #000000;
+    --clr_emergency: #ff0000;
+    --txt-margin: 10em;
 }
 
 /* Body */
@@ -39,6 +41,7 @@ body {
     background-color: var(--clr_background);
     min-height: 100vh;
 }
+
 /* Text */
 
 .nav-button {
@@ -50,22 +53,6 @@ p {
     margin: 0;
     font-size: 1rem;
     color: var(--clr_light);
-}
-.frame p:not(:last-child) {
-    max-height: 250px;
-    overflow: scroll;
-}
-.link-text {
-    cursor: pointer;
-    padding: 1em;
-    background-color: var(--clr_accent);
-    color: var(--clr_primary);
-    font-size: 1rem;
-    border-radius: 5px;
-    transition: transform 100ms ease-in-out;
-}
-.link-text:hover {
-    transform: scale(1.1);
 }
 h1 {
     margin: 0;
@@ -80,28 +67,14 @@ h2 {
 a {
     font-family: inherit;
     text-decoration: none;
+    color: var(--clr_light);
 }
 .nav-button:hover {
     filter: brightness(85%);
     text-decoration: underline solid var(--clr_accent);
 }
-.link-text-dark {
-    color: var(--clr_accent);
-    text-align: end;
-}
-.link-text-dark:hover {
-    filter: brightness(85%);
-    text-decoration: underline solid var(--clr_accent);
-}
-.frame h2 {
-    border-bottom: 2px solid;
-    border-color: var(--clr_accent);
-    flex-shrink: 1;
-}
-time {
-    filter:opacity(0.5);
-    align-self:center;
-    margin-left: auto;
+.emergency-text {
+    color: var(--clr_emergency)
 }
 
 /* Header */
@@ -164,40 +137,38 @@ nav ul {
 #nav-title {
     margin: auto 0;
 }
-.current-page {
-    color: var(--clr_accent)
-}
-
 /* Main */
 
 main {
-    margin-top: 50px;
     flex: 1 1 auto;
 }
-.frames {
-    padding: 0 1em;
-    flex-wrap: wrap;
-    gap: 1em;
-    justify-content: space-around;
-}
-.frame {
-    margin: 1em 0;
-    max-width: 250px;
-    height: 600px;
-    gap: 0.25em;
-    background: var(--clr_primary);
-    padding: 1em;
-}
-.frame-img {
-    min-width: 200px;
-    min-height: 150px;
-    object-fit: cover;
-}
-.link-text-div {
-    margin-top: auto;
-    gap: 0.25em;
+.intro {
+    flex: 1 1 auto;
+    margin-top: 50px;
+    padding: 0 var(--txt-margin);
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    gap: 2em;
+    background-image: url(img/background.jpg);
+    background-color: rgba(255,255,255,0.9);
+    background-blend-mode:overlay;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.info-links {
+    list-style: none;
+    margin: 0;
+    padding: 1em var(--txt-margin);
+    gap: 1em;
+    border-top: 2px solid var(--clr_accent);
+}
+.info-link:hover {
+    filter: brightness(85%);
+    text-decoration: underline solid var(--clr_accent);
+}
+.info-links li {
+    border-bottom: 0.1px solid var(--clr_accent);
 }
 
 /* Footer */
@@ -278,3 +249,169 @@ form {
         padding: 0;
     }
 }
+@media (max-width: 547px) {
+    .frame p:not(:last-child) {
+        max-height: fit-content;
+    }
+    .frame {
+       height: fit-content;
+    }
+}
+@media (min-width: 548px) {
+    .frame p:not(:last-child) {
+        max-height: 250px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 12;
+        -webkit-box-orient: vertical;
+        grid-area: p;
+    }
+}
+
+/* Gradient */
+/*
+:root {
+    --clr_gradient: linear-gradient(90deg, rgba(218,0,216,1) 0%, rgba(255,111,0,1) 100%);
+    --clr_start: rgba(218,0,216,1);
+    --clr_end: rgba(255,111,0,1);
+}
+header {
+    border-image: var(--clr_gradient) 1;
+}
+.nav-menu-button {
+    background: var(--clr_gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--clr_gradient) 1;
+}
+.link-text {
+    background: transparent;
+    color: var(--clr_light);
+    border: 2px solid;
+    border-image: var(--clr_gradient) 1;
+}
+.frame h2 {
+    border-image: var(--clr_gradient) 1;
+}
+.link-text-dark {
+    width:fit-content;
+    align-self: flex-end;
+    background: var(--clr_gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.link-text-dark:hover {
+    filter: brightness(100%);
+    text-decoration: none;
+}
+.link-text-dark:hover::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    height: 2px;
+    background: var(--clr_gradient);
+}
+.current-page {
+    background: var(--clr_gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+@keyframes color-anim {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+.nav-button:hover {
+    text-decoration: none;
+    filter: brightness(100%)
+}
+.nav-button:hover::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    height: 2px;
+    background: var(--clr_gradient);
+}
+.arrow-up {
+    background: var(--clr_gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--clr_gradient) 1;
+}
+.nav-search-input:focus {
+    border-image: var(--clr_gradient) 1;
+}
+.form-input:focus {
+    border-image: var(--clr_gradient) 1;
+}
+.submit-button {
+    background: transparent;
+    color: var(--clr_light);
+    border: 2px solid;
+    border-image: var(--clr_gradient) 1;
+}
+.frame h2 {
+    overflow: hidden;
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+.frame h2::after {
+    width: 218px;
+    content: "";
+    height: 2px;
+    background: var(--clr_gradient);
+}
+*/
+/* Animation */
+
+
+/*
+.link-text-dark {
+    background-size: 500% auto;
+    animation: color-anim 4s linear infinite alternate;
+}
+.current-page {
+    background-size: 500% auto;
+    animation: color-anim 4s linear infinite alternate;
+}
+.frame h2::after {
+    animation: color-anim 4s linear infinite alternate;
+    background-size: 500% auto;
+}
+.arrow-up {
+    background-size: 500% auto;
+    animation: color-anim 4s linear infinite alternate;
+}
+.nav-button:hover::before {
+    background-size: 500% auto;
+    animation: color-anim 4s linear infinite alternate;
+}
+@keyframes border-move-anim {
+    0% {
+        margin-left: -100%
+    }
+    100% {
+        margin-left: 100%
+    }
+}
+@keyframes color-anim {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+*/
