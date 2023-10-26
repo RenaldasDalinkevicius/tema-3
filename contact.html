@@ -8,23 +8,20 @@
     <link rel="stylesheet" href="index.css">
     <title>Ensomhet</title>
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
-    <!-- Remove later -->
-    <script language="JavaScript">
-        function alertF() {
-            alert("Skjema sendt inn")
-        }
-    </script>
 </head>
 <body class="flex column">
     <header class="flex">
         <nav class="flex row">
-            <h1 id="nav-title">Ensomhet</h1>
+            <h1 id="nav-title">Mental helse</h1>
             <ul class="flex">
                 <li id="nav-menu-button">
                     <i class="fa-solid fa-bars nav-menu-button"></i>
                 </li>
                 <li class="nav-list-item flex">
-                    <a href="/index.html" class="nav-button">Informasjon</a>
+                    <a href="/index.html" class="nav-button">Hjem</a>
+                </li>
+                <li class="nav-list-item flex">
+                    <a href="./information.html" class="nav-button">Informasjon</a>
                 </li>
                 <li class="nav-list-item flex">
                     <a href="./contact.html" class="nav-button current-page">kontakt Skjema</a>
@@ -47,7 +44,7 @@
             <div class="form-input-div">
                 <textarea type="text" class="textarea-input form-input" placeholder="Hva handler det om" rows="10"></textarea>
             </div>
-            <input type="submit" class="submit-button" value="Send inn skjema" onclick="alertF()">
+            <input type="submit" class="submit-button" value="Send inn skjema">
         </form>
     </main>
     <footer class="flex column">
